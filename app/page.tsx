@@ -2,15 +2,9 @@
 
 import { Header } from "./(component)/header";
 import { Display } from "./(component)/display";
-import axios from "axios";
 import { useQuery } from "react-query";
 import { Skeleton } from "./(component)/skeleton";
-export const retriveMessage = async () => {
-  const response = await axios.get(
-    "https://qa.corider.in/assignment/chat?page=0"
-  );
-  return response.data;
-};
+import { retriveMessage } from "./(component)/header";
 
 export default function Home() {
   const { data, error, isLoading } = useQuery("postsData", retriveMessage);

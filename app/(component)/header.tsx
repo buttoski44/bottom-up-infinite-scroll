@@ -1,11 +1,15 @@
-import Image from "next/image";
 import { More } from "./more";
 import { GroupPhoto } from "./grouphoto";
 import IconBack from "./(svg)/Iconback";
 import IconEdit from "./(svg)/Iconedit";
-import IconMember from "./(svg)/Iconmember";
 import { useQuery } from "react-query";
-import { retriveMessage } from "../page";
+import axios from "axios";
+export const retriveMessage = async () => {
+  const response = await axios.get(
+    "https://qa.corider.in/assignment/chat?page=0"
+  );
+  return response.data;
+};
 export const Header = () => {
   const { data, error, isLoading } = useQuery("postsData", retriveMessage);
   const { from, name, to } = data;
