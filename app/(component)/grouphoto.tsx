@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useQuery } from "react-query";
-import { retriveMessage } from "../page";
 import { resData } from "./message";
+import { retriveMessage } from "./header";
 export const GroupPhoto = () => {
   const { data, error, isLoading } = useQuery("postsData", retriveMessage);
   const { chats } = data;
