@@ -2,26 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.no-scroll-bar {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.no-scroll-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.bike-anim {
+  animation-name: bike;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes bike {
+  0% {
+    transform: translate(0%);
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  20% {
+    transform: translate(-30%);
+  }
+
+  40% {
+    transform: translate(60%);
+  }
+
+  60% {
+    transform: translate(-70%);
+  }
+
+  80% {
+    transform: translate(-20%);
+  }
+
+  100% {
+    transform: translate(0%);
+  }
 }
