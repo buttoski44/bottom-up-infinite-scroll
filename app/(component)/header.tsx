@@ -1,3 +1,5 @@
+"use client";
+
 import { More } from "./more";
 import { GroupPhoto } from "./grouphoto";
 import IconBack from "./(svg)/Iconback";
@@ -11,31 +13,41 @@ export const retriveMessage = async () => {
   return response.data;
 };
 export const Header = () => {
-  const { data, error, isLoading } = useQuery("postsData", retriveMessage);
-  const { from, name, to } = data;
+  const { data, isLoading } = useQuery("postsData", retriveMessage);
+
   return (
-    <header className="h-32 flex flex-col gap-4 pt-5 pb-4 px-4 bg-pwaWhite border-b-pwaGray-boarder border-solid border-[1px] text-pwaGreen-text">
-      <div className="h-8 w-full flex justify-between items-center">
-        <div className="flex gap-3 items-center">
-          <button className="hover:bg-white transition hover:shadow-md h-6 w-6 rounded-full flex items-center justify-center focus:bg-white focus:shadow-md">
+    <header className="h-auto flex flex-col gap-4 pt-3 pb-4 px-4 lg:px-8 bg-pwaWhite border-b-pwaGray-boarder border-solid border-[1px] text-pwaGreen-text">
+      <div className="flex items-center justify-between w-full h-8">
+        <div className="w-full flex items-center gap-3">
+          <button className="flex items-center justify-center w-6 h-6 transition rounded-full hover:bg-white hover:shadow-md focus:bg-white focus:shadow-md">
             <IconBack />
           </button>
-          <p className="text-2xl font-bold">{name}</p>
+          {isLoading ? (
+            <div className="h-10 w-1/3 bg-pwaGray-boarder rounded-full"></div>
+          ) : (
+            <p className="text-2xl font-bold">{data?.name}</p>
+          )}
         </div>
-        <button className="hover:bg-white transition hover:shadow-md h-8 w-8 rounded-full flex items-center justify-center focus:bg-white focus:shadow-md">
+        <button className="flex items-center justify-center w-8 h-8 transition rounded-full hover:bg-white hover:shadow-md focus:bg-white focus:shadow-md">
           <IconEdit />
         </button>
       </div>
-      <div className="h-12 w-full flex justify-between items-center">
-        <div className="flex items-center gap-4 h-full">
+      <div className="flex items-center justify-between w-full h-12">
+        <div className="flex items-center h-full w-full gap-4">
           <GroupPhoto />
-          <div>
-            <p className="before:content-['From'] before:text-pwaGray-primary before:font-semibold font-bold">
-              {` ${from}`}
-            </p>
-            <p className="before:content-['To'] before:text-pwaGray-primary font-bold before:font-semibold">
-              {` ${to}`}
-            </p>
+          <div className="w-full h-full">
+            {isLoading ? (
+              <div className="h-full w-1/5 bg-pwaGray-boarder  rounded-full"></div>
+            ) : (
+              <>
+                <p className="before:content-['From'] before:text-pwaGray-primary before:font-semibold font-bold">
+                  {` ${data?.from}`}
+                </p>
+                <p className="before:content-['To'] before:text-pwaGray-primary font-bold before:font-semibold">
+                  {` ${data?.to}`}
+                </p>
+              </>
+            )}
           </div>
         </div>
         <More />

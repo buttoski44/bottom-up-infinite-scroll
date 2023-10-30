@@ -24,17 +24,14 @@ const logo = [
 
 export const Clip = () => {
   return (
-    <div className="">
+    <div className="h-full">
       <Popover>
         <PopoverTrigger className="h-full p-3 bg-white hover:bg-pwaGray-hov">
           <IconPaperClip />
         </PopoverTrigger>
-        <PopoverContent
-          className="w-32 mr-2 
-        mb-1 bg-pwaGreen-lite flex rounded-full overflow-hidden relative border-none py-1 px-2"
-        >
+        <PopoverContent className="relative flex w-32 px-2 py-1 mb-1 mr-2 overflow-hidden border-none rounded-full bg-pwaGreen-lite">
           {logo.map(({ component }, i) => (
-            <button key={i} className="p-2 flex-grow">
+            <button key={i} className="flex-grow h-full p-2">
               {component()}
             </button>
           ))}

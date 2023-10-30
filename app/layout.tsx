@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${mulish.className} bg-pwaWhite h-[100dvh]`}>
+      <body className={`${mulish.className} bg-pwaWhite h-screen`}>
         <ReactQueryProvider>{children}</ReactQueryProvider>
       </body>
     </html>

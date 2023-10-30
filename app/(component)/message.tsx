@@ -16,10 +16,10 @@ export const Message = ({ obj }: { obj: resData }) => {
   if (sender?.self)
     return (
       <div className="flex justify-end gap-2 py-2">
-        <p className="w-4/5 p-2 rounded-l-lg rounded-br-lg bg-pwaBlue text-white text-sm font-medium shadow-lg ">
+        <p className="w-[81%] p-2 rounded-l-lg rounded-br-lg bg-pwaBlue text-white text-sm font-medium shadow-lg ">
           {message}
         </p>
-        <div className="rounded-full w-6 h-6 bg-white relative">
+        <div className="relative w-6 h-6 bg-white rounded-full">
           <Image
             src={sender.image.toString()}
             width={24}
@@ -27,7 +27,7 @@ export const Message = ({ obj }: { obj: resData }) => {
             alt={sender.user_id}
             className="rounded-full"
           />
-          <div className="absolute bottom-0 right-0 h-2 w-2">
+          <div className="absolute bottom-0 right-0 w-2 h-2">
             <IconVerified />
           </div>
         </div>
@@ -35,7 +35,7 @@ export const Message = ({ obj }: { obj: resData }) => {
     );
   return (
     <div className="flex gap-2 py-2">
-      <div className="rounded-full w-6 h-6 bg-white relative">
+      <div className="relative w-6 h-6 bg-white rounded-full">
         <Image
           src={sender.image.toString()}
           width={24}
@@ -43,11 +43,11 @@ export const Message = ({ obj }: { obj: resData }) => {
           alt={sender.user_id}
           className="rounded-full"
         />
-        <div className="absolute bottom-0 right-0 h-2 w-2">
+        <div className="absolute bottom-0 right-0 w-2 h-2">
           <IconVerified />
         </div>
       </div>
-      <p className="w-4/5 p-2 rounded-r-lg rounded-bl-lg bg-white text-pwaGray-primary text-sm font-medium shadow-md ">
+      <p className="w-[81%] p-2 rounded-r-lg rounded-bl-lg bg-white text-pwaGray-primary text-sm font-medium shadow-md ">
         {message}
       </p>
     </div>
