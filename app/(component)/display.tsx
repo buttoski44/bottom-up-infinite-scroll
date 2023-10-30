@@ -12,14 +12,14 @@ export const Display = () => {
       >
         <ChatContainer />
       </div>
-      <div className="h-[10%] w-full lg:w-1/2 flex items-center rounded-md shadow-lg overflow-clip">
+      <div className="h-[10%] w-full lg:w-1/2 flex items-center rounded-md shadow-lg overflow-clip border-[1px] border-pwaGray-secondary border-solid">
         <Input
           type="email"
           placeholder="Email"
-          className="h-full border-none focus-visible:outline-none"
+          className="h-full border-none focus:outline-none text-pwaGray-primary font-bold placeholder:font-thin"
         />
         <Clip />
-        <button className="h-full p-3 bg-white hover:bg-pwaGray-hov">
+        <button className="h-full p-3 bg-white hover:bg-pwaGray-secondary">
           <IconSend />
         </button>
       </div>

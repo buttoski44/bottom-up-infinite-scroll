@@ -26,7 +26,7 @@ export const Clip = () => {
   return (
     <div className="h-full">
       <Popover>
-        <PopoverTrigger className="h-full p-3 bg-white hover:bg-pwaGray-hov">
+        <PopoverTrigger className="h-full p-3 bg-white hover:bg-pwaGray-secondary rounded-sm">
           <IconPaperClip />
         </PopoverTrigger>
         <PopoverContent className="relative flex w-32 px-2 py-1 mb-1 mr-2 overflow-hidden border-none rounded-full bg-pwaGreen-lite">
